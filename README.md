@@ -38,92 +38,70 @@ Each part of the solution has a dedicated `.env.<solution>` file, used for confi
 
 When running parts of the solution through an IDE or similar, make sure it has the correct configurations, to allow communication with the parts running in Docker.
 
-### Folders
-
-#### Base
-
-Docker Compose configurations that start the base services required to run the backend from an IDE.
-
-- __Required secrets:__
-
-  - _db\_name_
-  - _db\_username_
-  - _db\_password_
-  - _db\_root\_password_
-
-#### Frontend
-
-Docker Compose configurations that start the necessary services (e.g., database and frontend apps), allowing the backend to be run and debugged from an IDE while still interacting with a functioning frontend.
-
-- __Required Docker Images:__ 
-  
-  - _agora-fe\_internal_
-  - _agora-fe\_public_
-  - _agora-fe\_public\_nginx_
-
-- __Required secrets:__
-
-  - _db\_name_
-  - _db\_username_
-  - _db\_password_
-  - _db\_root\_password_
-
-#### Backend
-
-Docker Compose configurations that start the backend dependencies, making it possible to run and debug the frontend against a real backend environment.
-
-- __Required Docker Images:__ 
-  
-  - _agora-api_
-  
-- __Required secrets:__
-
-  - _db\_name_
-  - _db\_username_
-  - _db\_password_
-  - _db\_root\_password_
-  - _ConnectionStrings\_\_DefaultConnection_
-
-#### OS2agora
-
-Docker Compose configurations for running the entire solution end-to-end in Docker
-
-- __Required Docker Images:__ 
-  
-  - _agora-api_
-  - _agora-fe\_internal_
-  - _agora-fe\_public_
-  - _agora-fe\_public\_nginx_
-
-- __Required secrets:__
-
-  - _db\_name_
-  - _db\_username_
-  - _db\_password_
-  - _db\_root\_password_
-  - _ConnectionStrings\_\_DefaultConnection_
-
-## Building Docker Images
+### Building Docker Images
 
 To build the required images, follow these steps:
 
 1. Navigate to the relevant repository:
-
   - [OS2agora-Internal-UI](https://github.com/OS2agora/OS2agora-Internal-UI)
-
     - _agora-fe\_internal_
-
   - [OS2agora-Public-UI](https://github.com/OS2agora/OS2agora-Public-UI)
-
     - _agora-fe\_public_
     - _agora-fe\_public\_nginx_
-
   - [OS2agora-API](https://github.com/OS2agora/OS2agora-API)
     - _agora-api_
-
 2. From the root, navigate to `/docker`
 3. Run the following command:
-
   ``` bash
     $ docker-compose -f docker-compose.build.yml build
   ```
+
+## Folders
+### Base
+Docker Compose configurations that start the base services required to run the backend from an IDE.
+
+- __Required secrets:__
+  - _db\_name_
+  - _db\_username_
+  - _db\_password_
+  - _db\_root\_password_
+
+### Frontend
+Docker Compose configurations that start the necessary services (e.g., database and frontend apps), allowing the backend to be run and debugged from an IDE while still interacting with a functioning frontend.
+
+- __Required Docker Images:__ 
+  - _agora-fe\_internal_
+  - _agora-fe\_public_
+  - _agora-fe\_public\_nginx_
+- __Required secrets:__
+  - _db\_name_
+  - _db\_username_
+  - _db\_password_
+  - _db\_root\_password_
+
+### Backend
+Docker Compose configurations that start the backend dependencies, making it possible to run and debug the frontend against a real backend environment.
+
+- __Required Docker Images:__ 
+  - _agora-api_
+- __Required secrets:__
+  - _db\_name_
+  - _db\_username_
+  - _db\_password_
+  - _db\_root\_password_
+  - _ConnectionStrings\_\_DefaultConnection_
+
+### OS2agora
+Docker Compose configurations for running the entire solution end-to-end in Docker
+
+- __Required Docker Images:__ 
+  - _agora-api_
+  - _agora-fe\_internal_
+  - _agora-fe\_public_
+  - _agora-fe\_public\_nginx_
+- __Required secrets:__
+  - _db\_name_
+  - _db\_username_
+  - _db\_password_
+  - _db\_root\_password_
+  - _ConnectionStrings\_\_DefaultConnection_
