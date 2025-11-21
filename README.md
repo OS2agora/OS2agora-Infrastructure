@@ -44,7 +44,6 @@ When running parts of the solution through an IDE or similar, make sure it has t
 To build the required images, follow these steps:
 
 1. Navigate to the relevant repository:
-
     - [OS2agora-Internal-UI](https://github.com/OS2agora/OS2agora-Internal-UI)
       - _agora-fe\_internal_
     - [OS2agora-Public-UI](https://github.com/OS2agora/OS2agora-Public-UI)
