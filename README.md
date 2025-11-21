@@ -1,6 +1,7 @@
 # OS2agora-Infrastructure
 
 This repository contains the infrastructure setup for running and developing the different parts of OS2agora using Docker.
+
 The repository is designed to make it easy to test, run, and debug individual components or the full system during development.
 
 The frontend for employees is located in [OS2agora-Internal-UI](https://github.com/OS2agora/OS2agora-Internal-UI)  
@@ -25,7 +26,7 @@ To start a given part of the solution, do the following steps:
   docker-compose -f docker-compose.yml --env-file .env up -d
   ```
 
-__NOTE:__ You may run the solution as is, but you need to have access to an IdP to login. The backend should further be configured to use that specific IdP.
+__NOTE:__ You may start the solution as is, but need to have access to an IdP to login as employee or citizen. The backend should further be configured to use that specific IdP.
 
 To stop the solution, use the following command:
 ```
@@ -36,20 +37,21 @@ docker-compose -f docker-compose.yml --env-file .env stop
 
 Each part of the solution has a dedicated `.env.<solution>` file, used for configurations - eg. `.env.api`. Configuration details for each core component are documented in that component’s own repository. This repository only provides the infrastructure needed to run those components, not their internal configuration instructions.
 
-When running parts of the solution through an IDE or similar, make sure it has the correct configurations, to allow communication with the parts running in Docker.
+When running parts of the solution through an IDE or similar, make sure it has the correct configurations, allowing communication with the parts running in Docker.
 
 ### Building Docker Images
 
 To build the required images, follow these steps:
 
 1. Navigate to the relevant repository:
-  - [OS2agora-Internal-UI](https://github.com/OS2agora/OS2agora-Internal-UI)
-    - _agora-fe\_internal_
-  - [OS2agora-Public-UI](https://github.com/OS2agora/OS2agora-Public-UI)
-    - _agora-fe\_public_
-    - _agora-fe\_public\_nginx_
-  - [OS2agora-API](https://github.com/OS2agora/OS2agora-API)
-    - _agora-api_
+
+    - [OS2agora-Internal-UI](https://github.com/OS2agora/OS2agora-Internal-UI)
+      - _agora-fe\_internal_
+    - [OS2agora-Public-UI](https://github.com/OS2agora/OS2agora-Public-UI)
+      - _agora-fe\_public_
+      - _agora-fe\_public\_nginx_
+    - [OS2agora-API](https://github.com/OS2agora/OS2agora-API)
+      - _agora-api_
 2. From the root, navigate to `/docker`
 3. Run the following command:
   ``` bash
